@@ -1,7 +1,9 @@
 package Models;
 
+import Utils.Builders.PersonajeBuilder;
+
 public class Mago extends Personaje {
-    public Mago() {
-        super("Mago", 3, 10, 6, 6);
+    public Mago(PersonajeBuilder<?> builder) {
+        super(builder);
     }
 }

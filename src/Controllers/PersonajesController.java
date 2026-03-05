@@ -4,7 +4,7 @@ import Views.VistaConsola;
 import Models.Personaje;
 import Utils.Builders.PersonajeBuilder;
 import Utils.Factories.PersonajeFactory;
-import Stategies.HabilidadStrategy;
+import Stategies.*;
 
 public class PersonajesController {
     private VistaConsola vista;
@@ -28,7 +28,6 @@ public class PersonajesController {
     public void agregarHabilidad(Personaje personaje, HabilidadStrategy habilidad) {
         if (personaje != null && habilidad != null) {
             personaje.agregarHabilidad(habilidad);
-            vista.mostrarMensaje("Habilidad agregada al personaje.");
         }
     }
 
@@ -46,5 +45,59 @@ public class PersonajesController {
         } else {
             vista.mostrarMensaje("Error: Personaje no existe.");
         }
+    }
+
+    public Personaje crearGuerrero() {
+        vista.mostrarMensaje("Creando un Guerrero...");
+        PersonajeBuilder<?> guerreroBuilder = PersonajeFactory.crearBuilder("guerrero");
+        Personaje guerrero = guerreroBuilder
+                .agregarHabilidad(new AtaqueEspadazo())
+                .agregarHabilidad(new DefensaEscudo())
+                .setFuerza(80)
+                .setInteligencia(40)
+                .setVelocidad(60)
+                .setResistencia(70)
+                .obtenerPersonaje();
+        return guerrero;
+    }
+
+    public Personaje crearMago() {
+        vista.mostrarMensaje("Creando un Mago...");
+        PersonajeBuilder<?> magoBuilder = PersonajeFactory.crearBuilder("mago");
+        Personaje mago = magoBuilder
+                .agregarHabilidad(new AtaqueBolaDeFuego())
+                .agregarHabilidad(new CuracionMagica())
+                .setFuerza(40)
+                .setInteligencia(80)
+                .setVelocidad(50)
+                .setResistencia(30)
+                .obtenerPersonaje();
+        return mago;
+    }
+
+    public Personaje crearGuerreroCompleto() {
+        vista.mostrarMensaje("Creando un Guerrero Completo...");
+        Personaje guerreroCompleto = PersonajeFactory.crearBuilder("guerrero")
+                .agregarHabilidad(new AtaqueEspadazo())
+                .agregarHabilidad(new DefensaEscudo())
+                .agregarHabilidad(new AtaqueBolaDeFuego())
+                .agregarHabilidad(new CuracionMagica())
+                .setFuerza(80)
+                .setInteligencia(40)
+                .setVelocidad(60)
+                .setResistencia(70)
+                .obtenerPersonaje();
+        return guerreroCompleto;
+    }
+
+    public Personaje crearArqueroCompleto() {
+        vista.mostrarMensaje("Creando un Arquero Completo...");
+        Personaje arqueroCompleto = PersonajeFactory.crearBuilder("arquero")
+                .setFuerza(60)
+                .setInteligencia(50)
+                .setVelocidad(80)
+                .setResistencia(40)
+                .obtenerPersonaje();
+        return arqueroCompleto;
     }
 }

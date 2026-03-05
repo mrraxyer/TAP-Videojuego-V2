@@ -1,7 +1,9 @@
 package Models;
 
+import Utils.Builders.PersonajeBuilder;
+
 public class Guerrero extends Personaje {
-    public Guerrero() {
-        super("Guerrero", 10, 2, 8, 8);
+    public Guerrero(PersonajeBuilder<?> builder) {
+        super(builder);
     }
 }

@@ -1,6 +1,8 @@
 package Models;
 
 import Stategies.HabilidadStrategy;
+import Utils.Builders.PersonajeBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +12,12 @@ public abstract class Personaje {
     protected int inteligencia;
     protected int velocidad;
     protected int resistencia;
+    protected int precision;
+    protected int fe;
     protected List<HabilidadStrategy> habilidades;
 
-    public Personaje(String tipo, int fuerza, int inteligencia, int velocidad, int resistencia) {
-        this.tipo = tipo;
-        this.fuerza = fuerza;
-        this.inteligencia = inteligencia;
-        this.velocidad = velocidad;
-        this.resistencia = resistencia;
+    public Personaje(PersonajeBuilder<?> builder) {
+        this.tipo = builder.tipo;
         this.habilidades = new ArrayList<>();
     }
 
@@ -35,6 +35,14 @@ public abstract class Personaje {
 
     public void setResistencia(int resistencia) {
         this.resistencia = resistencia;
+    }
+
+    public void setPrecision(int precision) {
+        this.precision = precision;
+    }
+
+    public void setFe(int fe) {
+        this.fe = fe;
     }
 
     public void agregarHabilidad(HabilidadStrategy habilidad) {
@@ -61,32 +69,44 @@ public abstract class Personaje {
         return resistencia;
     }
 
+    public int getPrecision() {
+        return precision;
+    }
+
+    public int getFe() {
+        return fe;
+    }
+
     public List<HabilidadStrategy> getHabilidades() {
         return habilidades;
     }
 
-    public void mostrarFicha() {
-        System.out.println("\nFicha del Personaje");
-        System.out.println("-------");
-        System.out.println("Tipo: " + tipo);
-        System.out.println("Fuerza: " + fuerza);
-        System.out.println("Inteligencia: " + inteligencia);
-        System.out.println("Velocidad: " + velocidad);
-        System.out.println("Resistencia: " + resistencia);
-        System.out.println("Habilidades: " + habilidades.size());
-        System.out.println("-------\n");
+    public String mostrarFicha() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nFicha del Personaje");
+        sb.append("\n-------");
+        sb.append("\nTipo: ").append(tipo);
+        sb.append("\nFuerza: ").append(fuerza);
+        sb.append("\nInteligencia: ").append(inteligencia);
+        sb.append("\nVelocidad: ").append(velocidad);
+        sb.append("\nResistencia: ").append(resistencia);
+        sb.append("\nHabilidades: ").append(habilidades.size());
+        sb.append("\n-------\n");
+        return sb.toString();
     }
 
-    public void ejecutarHabilidades() {
-        System.out.println("\nEjecutando habilidades de " + tipo);
-        System.out.println("-------");
+    public String ejecutarHabilidades() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nEjecutando habilidades de " + tipo);
+        sb.append("\n-------");
         if (habilidades.isEmpty()) {
-            System.out.println("Este personaje no tiene habilidades asignadas.");
+            sb.append("\nEste personaje no tiene habilidades asignadas.");
         } else {
             for (HabilidadStrategy habilidad : habilidades) {
                 habilidad.usar();
             }
         }
-        System.out.println("-------\n");
+        sb.append("\n-------\n");
+        return sb.toString();
     }
 }

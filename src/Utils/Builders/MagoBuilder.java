@@ -1,11 +1,11 @@
 package Utils.Builders;
 
-import Models.Mago;
+import Models.Guerrero;
 
-public class MagoBuilder extends PersonajeBuilder<Mago> {
-
+public class MagoBuilder extends PersonajeBuilder<Guerrero> {
     @Override
     public void crearPersonaje() {
-        personaje = new Mago();
+        setTipo("Guerrero");
+        this.personaje = new Guerrero(this);
     }
 }
