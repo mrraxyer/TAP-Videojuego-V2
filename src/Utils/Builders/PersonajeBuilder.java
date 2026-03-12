@@ -1,11 +1,15 @@
 package Utils.Builders;
 
-import Stategies.HabilidadStrategy;
 import Models.Personaje;
+import Stategies.HabilidadStrategy;
 
+// Clase abstracta que define el builder para crear personajes
+// con un tipo generico T que extiende de Personaje, lo que permite crear builders
+// para diferentes tipos de personajes
 public abstract class PersonajeBuilder<T extends Personaje> {
     protected T personaje;
 
+    // Metodo abstracto que debe ser implementado por las clases concretas de builders
     public abstract void crearPersonaje();
 
     public PersonajeBuilder<T> agregarHabilidad(HabilidadStrategy habilidad) {
@@ -13,6 +17,7 @@ public abstract class PersonajeBuilder<T extends Personaje> {
         return this;
     }
 
+    // Metodo para obtener el pesonaje creado por el builder
     public T obtenerPersonaje() {
         return personaje;
     }
