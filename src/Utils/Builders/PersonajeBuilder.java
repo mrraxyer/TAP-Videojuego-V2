@@ -46,4 +46,9 @@ public abstract class PersonajeBuilder<T extends Personaje> {
         personaje.setFe(fe);
         return this;
     }
+
+    public PersonajeBuilder<T> setNivel(int nivel) {
+        personaje.setNivel(nivel);
+        return this;
+    }
 }

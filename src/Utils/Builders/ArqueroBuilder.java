@@ -8,11 +8,11 @@ public class ArqueroBuilder extends PersonajeBuilder<Arquero> {
     @Override
     public void crearPersonaje() {
         this.personaje = new Arquero();
-        setFuerza(60)
-                .setInteligencia(50)
-                .setVelocidad(80)
-                .setResistencia(40)
-                .setPrecision(90)
+        setFuerza(5)
+                .setInteligencia(4)
+                .setVelocidad(9)
+                .setResistencia(5)
+                .setPrecision(8)
                 .agregarHabilidad(new DisparoPreciso())
                 .agregarHabilidad(new AtaqueRapido());
     }

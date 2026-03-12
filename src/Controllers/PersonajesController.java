@@ -46,4 +46,12 @@ public class PersonajesController {
             vista.mostrarMensaje("Error: Personaje no existe.");
         }
     }
+
+    public void ejecutarHabilidad(Personaje personaje, String nombre) {
+        if (personaje != null) {
+            vista.mostrarMensaje(personaje.ejecutarHabilidad(nombre));
+        } else {
+            vista.mostrarMensaje("Error: Personaje no existe.");
+        }
+    }
 }

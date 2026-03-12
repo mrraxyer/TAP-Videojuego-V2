@@ -8,11 +8,11 @@ public class PaladinBuilder extends PersonajeBuilder<Paladin> {
     @Override
     public void crearPersonaje() {
         this.personaje = new Paladin();
-        setFuerza(70)
-                .setInteligencia(65)
-                .setVelocidad(55)
-                .setResistencia(85)
-                .setFe(95)
+        setFuerza(8)
+                .setInteligencia(5)
+                .setVelocidad(5)
+                .setResistencia(9)
+                .setFe(7)
                 .agregarHabilidad(new EscudoSagrado())
                 .agregarHabilidad(new Curacion());
     }

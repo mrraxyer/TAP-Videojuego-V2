@@ -19,9 +19,11 @@ public class App {
                 var arquero = controller.generarPersonaje("arquero");
                 controller.mostrarFichaPersonaje(arquero);
                 controller.ejecutarHabilidades(arquero);
+                controller.ejecutarHabilidad(arquero, "DisparoPreciso");
 
                 var paladin = controller.generarPersonaje("paladin");
                 controller.mostrarFichaPersonaje(paladin);
                 controller.ejecutarHabilidades(paladin);
+                controller.ejecutarHabilidad(paladin, "EscudoSagrado");
         }
 }
