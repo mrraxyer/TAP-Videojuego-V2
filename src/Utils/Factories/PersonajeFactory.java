@@ -1,20 +1,22 @@
 package Utils.Factories;
 
+import Utils.Builders.*;
+
 public class PersonajeFactory {
-    public static Utils.Builders.PersonajeBuilder<?> crearBuilder(String tipo) {
-        Utils.Builders.PersonajeBuilder<?> builder;
+    public static PersonajeBuilder<?> crearBuilder(String tipo) {
+        PersonajeBuilder<?> builder;
         switch (tipo.toLowerCase()) {
             case "guerrero":
-                builder = new Utils.Builders.GuerreroBuilder();
+                builder = new GuerreroBuilder();
                 break;
             case "mago":
-                builder = new Utils.Builders.MagoBuilder();
+                builder = new MagoBuilder();
                 break;
             case "arquero":
-                builder = new Utils.Builders.ArqueroBuilder();
+                builder = new ArqueroBuilder();
                 break;
             case "paladin":
-                builder = new Utils.Builders.PaladinBuilder();
+                builder = new PaladinBuilder();
                 break;
             default:
                 throw new IllegalArgumentException("Tipo de personaje desconocido: " + tipo);

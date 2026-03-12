@@ -1,11 +1,18 @@
 package Utils.Builders;
 
-import Models.Guerrero;
+import Models.Mago;
+import Stategies.AtaqueBolaDeFuego;
+import Stategies.CuracionMagica;
 
-public class MagoBuilder extends PersonajeBuilder<Guerrero> {
+public class MagoBuilder extends PersonajeBuilder<Mago> {
     @Override
     public void crearPersonaje() {
-        setTipo("Guerrero");
-        this.personaje = new Guerrero(this);
+        this.personaje = new Mago();
+        setFuerza(40)
+                .setInteligencia(80)
+                .setVelocidad(50)
+                .setResistencia(30)
+                .agregarHabilidad(new AtaqueBolaDeFuego())
+                .agregarHabilidad(new CuracionMagica());
     }
 }

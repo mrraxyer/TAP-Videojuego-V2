@@ -1,7 +1,6 @@
 package Models;
 
 import Stategies.HabilidadStrategy;
-import Utils.Builders.PersonajeBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +15,8 @@ public abstract class Personaje {
     protected int fe;
     protected List<HabilidadStrategy> habilidades;
 
-    public Personaje(PersonajeBuilder<?> builder) {
-        this.tipo = builder.tipo;
+    public Personaje(String tipo) {
+        this.tipo = tipo;
         this.habilidades = new ArrayList<>();
     }
 
@@ -97,13 +96,13 @@ public abstract class Personaje {
 
     public String ejecutarHabilidades() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nEjecutando habilidades de " + tipo);
+        sb.append("\nEjecutando habilidades de ").append(tipo);
         sb.append("\n-------");
         if (habilidades.isEmpty()) {
             sb.append("\nEste personaje no tiene habilidades asignadas.");
         } else {
             for (HabilidadStrategy habilidad : habilidades) {
-                habilidad.usar();
+                sb.append("\n- ").append(habilidad.usar());
             }
         }
         sb.append("\n-------\n");

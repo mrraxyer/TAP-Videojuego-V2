@@ -8,20 +8,20 @@ public class App {
 
                 vista.mostrarTitulo("Sistema de Creacion de Personajes");
 
-                var guerrero = controller.crearGuerrero();
+                var guerrero = controller.generarPersonaje("guerrero");
                 controller.mostrarFichaPersonaje(guerrero);
                 controller.ejecutarHabilidades(guerrero);
 
-                var mago = controller.crearMago();
+                var mago = controller.generarPersonaje("mago");
                 controller.mostrarFichaPersonaje(mago);
                 controller.ejecutarHabilidades(mago);
 
-                var guerreroCompleto = controller.crearGuerreroCompleto();
-                controller.mostrarFichaPersonaje(guerreroCompleto);
-                controller.ejecutarHabilidades(guerreroCompleto);
+                var arquero = controller.generarPersonaje("arquero");
+                controller.mostrarFichaPersonaje(arquero);
+                controller.ejecutarHabilidades(arquero);
 
-                var arqueroCompleto = controller.crearArqueroCompleto();
-                controller.mostrarFichaPersonaje(arqueroCompleto);
-                controller.ejecutarHabilidades(arqueroCompleto);
+                var paladin = controller.generarPersonaje("paladin");
+                controller.mostrarFichaPersonaje(paladin);
+                controller.ejecutarHabilidades(paladin);
         }
 }

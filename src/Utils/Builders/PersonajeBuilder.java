@@ -5,7 +5,6 @@ import Models.Personaje;
 
 public abstract class PersonajeBuilder<T extends Personaje> {
     protected T personaje;
-    public String tipo;
 
     public abstract void crearPersonaje();
 
@@ -16,11 +15,6 @@ public abstract class PersonajeBuilder<T extends Personaje> {
 
     public T obtenerPersonaje() {
         return personaje;
-    }
-
-    public PersonajeBuilder<T> setTipo(String tipo) {
-        this.tipo = tipo;
-        return this;
     }
 
     public PersonajeBuilder<T> setFuerza(int fuerza) {
@@ -40,6 +34,16 @@ public abstract class PersonajeBuilder<T extends Personaje> {
 
     public PersonajeBuilder<T> setResistencia(int resistencia) {
         personaje.setResistencia(resistencia);
+        return this;
+    }
+
+    public PersonajeBuilder<T> setPrecision(int precision) {
+        personaje.setPrecision(precision);
+        return this;
+    }
+
+    public PersonajeBuilder<T> setFe(int fe) {
+        personaje.setFe(fe);
         return this;
     }
 }
