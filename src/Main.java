@@ -1,7 +1,7 @@
 import Controllers.PersonajesController;
 import Views.VistaConsola;
 
-public class App {
+public class Main {
         public static void main(String[] args) {
                 // Se crea la vista y el controlador para la logica de personajes
                 VistaConsola vista = new VistaConsola();
